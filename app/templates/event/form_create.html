@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<form>
+ <div class="form-group">
+    <label for="exampleInputEmail1">Equipamento</label>
+      <select class="form-control">
+        {% for entity in entitys %}
+        <option value="{{ entity.id}}">{{ entity.name }}</option>
+        {% endfor %}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Setor</label>
+    <select class="form-control">
+        {% for location in locations %}
+        <option value="{{ location.id}}">{{ location.name }}</option>
+        {% endfor %}
+    </select>
+  </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Ocorrência</label>
+    <textarea class="form-control" id="exampleInputPassword1">
+    </textarea>
+  </div>
+  <button type="submit" class="btn btn-success pull-right">Enviar</button>
+</form>
+
+
+
+{% endblock content%}

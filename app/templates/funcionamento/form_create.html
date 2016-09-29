@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<!-- Parte das opções de funcionamento -->
+
+<form>
+<div class="media">
+  <div class="media-left">
+
+    <a href="#">
+      <img class="media-object" src="http://www.vanguarda.net.br/imagemdim.php?MAX_WIDTH=550&MAX_HEIGHT=450&IMAGEM=admin/produtos/5f444c2da35c3145a0d393f0b3869836b7a36f7576SISTEMA%20DX%203010.jpg">
+    </a>
+  </div>
+  <div class="media-body" >
+      <h4 class="media-heading">Media heading </h4>
+      <option value="{{ entity.id}}">{{ entity.name}}</option> <!--colocar if do id do equipamento que vem do qrcode-->
+
+  </div>
+
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default">Primeiros Passos</button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default">Modo de Funcionamento</button>
+  </div>
+  <div class="btn-group" role="group">
+    <a href='/errosfrequentes/create/' type="button" class="btn btn-default">Erros mais frequentes</a>
+  </div>
+</div>
+<!-- Testando -->
+<nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><a href='/sumario/create/'><span aria-hidden="true">&larr;</span> Voltar </a></li>
+  </ul>
+</nav>
+</div>
+</form>
+
+{% endblock content%}

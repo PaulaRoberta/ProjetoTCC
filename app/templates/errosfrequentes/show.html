@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<style>
+    span.list{
+        text-align: center;
+    }
+    div.faq{
+        padding-top: 4%;
+    }
+</style>
+
+    <div class="list-group-item">
+        <p>
+            <h2  style="text-align: center;">
+                <span class=" glyphicon glyphicon-pushpin" aria-hidden="true">  Perguntas Frequentes </span>
+            </h2>
+        </p>
+        <h4 style="text-align: center; font-weight: bold">{{ entity.name }}</h4>
+        <div class="faq">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                {% for faq in faqs %}
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#faq-{{ forloop.counter }}" aria-expanded="true" aria-controls="collapseOne">
+                                        <strong>{{ faq.ask }}</strong>
+                                    </a>
+                                </h4>
+                            </div>
+                        <div id="faq-{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                {{ faq.answer }}
+                            </div>
+                        </div>
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock content%}

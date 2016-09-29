@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<!-- Erros Frequentes encontrados nos equipamentos/ Colocar os css no arquivo-->
+<form>
+<div  style="text-align:center"> <!-- colocar a classe quando fizer o apresentação.css -->
+    <h3  style="text-align:center;padding:20px"><span class="glyphicon glyphicon-wrench" aria-hidden="true"> Erros Frequentes</span></h3>
+
+    <div class="dropdown"  style="padding:20px">
+        <select class="form-control">
+        {% for entity in entitys %}
+            <option value="{{ entity.id}}">{{ entity.name }}</option>
+        {% endfor %}
+        </select>
+    </div>
+
+<!-- colocar as imagens com as correções -->
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="..." alt="...">
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="..." alt="...">
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="..." alt="...">
+        </div>
+      </div>
+    </div>
+    <div class="btn-group" role="group">
+    <a href='/event/create/' type="button" class="btn btn-default">Abrir Ocorrência</a>
+  </div>
+</div>
+</form>
+
+
+{% endblock content%}
