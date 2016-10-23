@@ -23,7 +23,7 @@
             <a href="/errosfrequentes/{{entity.id}}" data-toggle="tooltip" data-placement="top" title="Perguntas Frequentes">
                 <i class="glyphicon glyphicon-tags"></i>
             </a>
-            <a href="javascript:" id="qrcode" data-url="/equipamento/qrcode/{{entity.id}}" data-toggle="tooltip" data-placement="top" title="QRCODE">
+            <a href="javascript:" class="qrcode" data-url="/equipamento/qrcode/{{entity.id}}" data-toggle="tooltip" data-placement="top" title="QRCODE">
                 <i class="glyphicon glyphicon-qrcode"></i>
             </a>
         </td>
@@ -48,7 +48,7 @@
       pwa.document.close();
   }
   (function ($) {
-    $("#qrcode").click(function (event) {
+    $(".qrcode").click(function (event) {
       var url = $(this).data("url");
       $.get(url, function (response) {
         PrintImage(response)

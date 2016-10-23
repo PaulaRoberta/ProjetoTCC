@@ -34,7 +34,8 @@ class Entity(Model):
     maker = CharField(max_length=120, null=True)
     model = CharField(max_length=120, null=True)
     created_at = DateTimeField(default=timezone.now())
-    description = CharField(max_length=200, null=True)
+    description = CharField(max_length=400, null=True)
+    image = CharField(max_length=300, null=True)
 
     def __str__(self):
         return self.name
@@ -53,6 +54,7 @@ class Midias(Model):
     entity = ForeignKey(Entity, null=True)
     file = CharField(max_length=120, null=True)
     link = CharField(max_length=120, null=True)
+
 
     def __str__(self):
         return "Entity #%s" % self.id
