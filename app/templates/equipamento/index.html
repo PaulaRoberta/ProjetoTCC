@@ -2,23 +2,60 @@
 
 
 {% block content %}
+
 <table class="table table-condensed">
     <thead>
         <tr>
             <th>Nome</th>
+            <th>Fabricante</th>
+            <th>Modelo</th>
+            <th>Numero de Série</th>
             <th>Ações</th>
         </tr>
     </thead>
 {% for entity in entitys %}
     <tr>
         <td>{{ entity.name }}</td>
+        <td>{{ entity.maker }}</td>
+        <td>{{ entity.model }}</td>
+        <td>{{ entity.serie_number }}</td>
         <td>
             <a href="/errosfrequentes/{{entity.id}}" data-toggle="tooltip" data-placement="top" title="Perguntas Frequentes">
                 <i class="glyphicon glyphicon-tags"></i>
+            </a>
+            <a href="javascript:" id="qrcode" data-url="/equipamento/qrcode/{{entity.id}}" data-toggle="tooltip" data-placement="top" title="QRCODE">
+                <i class="glyphicon glyphicon-qrcode"></i>
             </a>
         </td>
     </tr>
 {% endfor %}
 </table>
+
+  <script type="text/javascript">
+
+  function ImagetoPrint(source) {
+    return "<html><head><script>function step1(){\n" +
+            "setTimeout('step2()', 10);}\n" +
+            "function step2(){window.print();window.close()}\n" +
+            "</scri" + "pt></head><body onload='step1()'>\n" +
+            "<img src='" + source + "' /></body></html>";
+    }
+  function PrintImage(source) {
+      Pagelink = "about:blank";
+      var pwa = window.open(Pagelink, "_new");
+      pwa.document.open();
+      pwa.document.write(ImagetoPrint(source));
+      pwa.document.close();
+  }
+  (function ($) {
+    $("#qrcode").click(function (event) {
+      var url = $(this).data("url");
+      $.get(url, function (response) {
+        PrintImage(response)
+      });
+    });
+  })(jQuery)
+  </script>
+
 {% endblock content%}
 

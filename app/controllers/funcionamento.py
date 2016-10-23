@@ -4,12 +4,13 @@ from django.template import loader
 
 from app.models import Entity,Midias
 
-def create(request):
+
+def index(request, id):
     midias = Midias.objects.all()
-    entitys = Entity.objects.all()
+    entity = Entity.objects.get(pk=id)
     return render(request, 'funcionamento/form_create.html', {
         "midias": midias,
-        "entitys": entitys
+        "entity": entity
     })
 
 def read(request):
