@@ -6,18 +6,9 @@ from app.models import Entity,Midias
 
 
 def index(request, id):
+    my_entity = Entity.objects.get(pk=id)
     midias = Midias.objects.all()
-    entity = Entity.objects.get(pk=id)
-    return render(request, 'funcionamento/form_create.html', {
-        "midias": midias,
-        "entity": entity
+    return render(request, 'funcionamento/index.html', {
+        "entity": my_entity,
+        "midias": midias
     })
-
-def read(request):
-    pass
-
-def update(request):
-    pass
-
-def delete(request):
-    pass

@@ -5,6 +5,11 @@ from requests.utils import quote
 
 from app.models import Entity
 
+def funcionamento(request, id):
+    entity = Entity.objects.get(pk=id)
+    return render(request, 'funcionamento/form_create.html', {
+        "entity": entity
+    })
 
 def index(request):
     entitys = Entity.objects.all()
