@@ -4,20 +4,15 @@
 {% block content %}
 <!-- Parte do Sumario que será escolhido as opções -->
 
-<form>
+
 <div class="media">
   <div class="media-left">
-
-    <a href="#">
-      <img class="media-object" src="http://www.vanguarda.net.br/imagemdim.php?MAX_WIDTH=40&MAX_HEIGHT=30&IMAGEM=admin/produtos/5f444c2da35c3145a0d393f0b3869836b7a36f7576SISTEMA%20DX%203010.jpg">
-    </a>
-  </div>
-  <div class="media-body" >
-      <h4 class="media-heading">Media heading </h4>
-      <option value="{{ entity.id}}">{{ entity.name}}</option> <!--colocar if do id do equipamento que vem do qrcode-->
+      <img class="media-object" style="height:40%; margin-left:auto; margin-right:auto;" src="{{entity.image}}">
+  <div class="media-body" style="text-align: center" >
+      <h4> <option value="{{ entity.id}} {{entity.maker}} {{ entity.model}}">{{ entity.name}} {{ entity.maker}} {{ entity.model}}</option> </h4><!--colocar if do id do equipamento que vem do qrcode-->
 
   </div>
-
+  </div>
 <div class="btn-group btn-group-justified" role="group" aria-label="...">
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-default">Protocolos</button>
@@ -30,7 +25,7 @@
   </div>
 </div>
 </div>
-</form>
+
 
 
 

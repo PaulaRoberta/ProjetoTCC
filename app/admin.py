@@ -10,3 +10,4 @@ admin.site.register(models.Event)
 admin.site.register(models.Comment)
 admin.site.register(models.FAQ)
 admin.site.register(models.Midias)
+

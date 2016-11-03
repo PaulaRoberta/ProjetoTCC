@@ -48,7 +48,7 @@ function drop(e) {
 function handleFiles(f)
 {
 	var o=[];
-	
+
 	for(var i =0;i<f.length;i++)
 	{
         var reader = new FileReader();
@@ -59,7 +59,7 @@ function handleFiles(f)
 			qrcode.decode(e.target.result);
         };
         })(f[i]);
-        reader.readAsDataURL(f[i]);	
+        reader.readAsDataURL(f[i]);
     }
 }
 
@@ -85,12 +85,12 @@ function captureToCanvas() {
             try{
                 qrcode.decode();
             }
-            catch(e){       
+            catch(e){
                 console.log(e);
                 setTimeout(captureToCanvas, 500);
             };
         }
-        catch(e){       
+        catch(e){
                 console.log(e);
                 setTimeout(captureToCanvas, 500);
         };
@@ -121,7 +121,7 @@ function success(stream) {
     gUM=true;
     setTimeout(captureToCanvas, 500);
 }
-		
+
 function error(error) {
     gUM=false;
     return;
@@ -147,7 +147,7 @@ function load()
 
 function setwebcam()
 {
-	
+
 	var options = true;
 	if(navigator.mediaDevices && navigator.mediaDevices.enumerateDevices)
 	{
@@ -174,7 +174,7 @@ function setwebcam()
 		console.log("no navigator.mediaDevices.enumerateDevices" );
 		setwebcam2(options);
 	}
-	
+
 }
 
 function setwebcam2(options)

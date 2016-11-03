@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Parte das opções de funcionamento -->
+
+<div class="row">
+    <!-- Image -->
+    <div class="col-md-6">
+        <img style="width:100%;" src="{{entity.image}}">
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-12" style="text-align: right">
+                <a class="btn btn-primary" href='/funcionamento/{{ entity.id }}' > <i class="glyphicon glyphicon-book"></i> Manual </a>
+            <!-- </div>
+            <div class="col-md-4"> -->
+                <a class="btn btn-primary" href='/funcionamento/{{ entity.id }}' > <i class="glyphicon glyphicon-book"></i> Guia Rápido</a>
+            <!-- </div>
+            <div class="col-md-4"> -->
+                <a class="btn btn-primary" href='/errosfrequentes/{{ entity.id }}' > <i class="glyphicon glyphicon-alert"></i> Dúvidas </a>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ entity.name}} {{ entity.maker}} {{ entity.model}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{ entity.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+</div>
+
+{% endblock content%}

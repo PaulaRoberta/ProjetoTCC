@@ -3,7 +3,6 @@ from django.utils import timezone
 from django.db.models import (Model, CharField, ForeignKey,
                                                    DateTimeField)
 
-
 class UserType(Model):
     type_user =CharField(max_length=120)
 
@@ -50,6 +49,7 @@ class Event(Model):
     def __str__(self):
         return "Entity #%s" % self.id
 
+
 class Midias(Model):
     entity = ForeignKey(Entity, null=True)
     file = CharField(max_length=120, null=True)
@@ -58,6 +58,7 @@ class Midias(Model):
 
     def __str__(self):
         return "Entity #%s" % self.id
+
 
 
 class Comment(Model):
