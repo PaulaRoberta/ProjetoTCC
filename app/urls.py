@@ -1,6 +1,9 @@
-from django.conf.urls import url
-from app.controllers import (event, funcionamento, sumario, errosfrequentes,
-                             equipamento, qrcode, user)
+from django.views import static
+from django.conf.urls import url, include
+from app.controllers import (event, funcionamento, errosfrequentes,
+                             equipamento, qrcode, user, midia)
+
+from django.conf import settings
 
 urlpatterns = [
     url(r'^event/create', event.create, name='index'),
@@ -16,11 +19,17 @@ urlpatterns = [
 
     url(r'^errosfrequentes/(?P<id>\d+)',errosfrequentes.show, name='errosfrequentes'),
 
-    url(r'^sumario/create',sumario.create, name='sumario'), #olhar n tem nada.
+    url(r'^midia/', midia.index, name='midia'), #olhar n tem nada.
 
     url(r'^login$', user.login, name='login'),
     url(r'^do_login$', user.do_login, name='do login'),
     url(r'^user/create$', user.create, name='create'),
     url(r'^user/do_create$', user.do_create, name='do create'),
+
+
+    url(r'^media/(?P<path>.*)$', static.serve, {
+            'document_root': settings.MEDIA_ROOT,
+    }),
+
 
 ]

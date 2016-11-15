@@ -20,6 +20,9 @@
         <td>{{ entity.model }}</td>
         <td>{{ entity.serie_number }}</td>
         <td>
+           <a href="/equipamento/{{entity.id}}" data-toggle="tooltip" data-placement="top" title="Visializar">
+                <i class="glyphicon glyphicon glyphicon-eye-open"></i>
+            </a>
             <a href="/errosfrequentes/{{entity.id}}" data-toggle="tooltip" data-placement="top" title="Perguntas Frequentes">
                 <i class="glyphicon glyphicon-tags"></i>
             </a>

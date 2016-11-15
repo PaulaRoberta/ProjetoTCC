@@ -1,7 +1,16 @@
 import datetime
 from django.utils import timezone
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from sorl.thumbnail import ImageField
+
+
 from django.db.models import (Model, CharField, ForeignKey,
-                                                   DateTimeField)
+                                                   DateTimeField, FileField)
+
+from django_markdown.models import MarkdownField
+class MyModel(Model):
+    content = MarkdownField()
 
 class UserType(Model):
     type_user =CharField(max_length=120)
@@ -34,7 +43,9 @@ class Entity(Model):
     model = CharField(max_length=120, null=True)
     created_at = DateTimeField(default=timezone.now())
     description = CharField(max_length=400, null=True)
-    image = CharField(max_length=300, null=True)
+    image =  ImageField(upload_to='entity', null=True)
+    manual = FileField(upload_to='entity', null=True)
+    link = CharField(max_length=120, null=True)
 
     def __str__(self):
         return self.name
@@ -52,13 +63,10 @@ class Event(Model):
 
 class Midias(Model):
     entity = ForeignKey(Entity, null=True)
-    file = CharField(max_length=120, null=True)
+    file = ImageField(upload_to='media/cars', null=True)
     link = CharField(max_length=120, null=True)
-
-
     def __str__(self):
         return "Entity #%s" % self.id
-
 
 
 class Comment(Model):
@@ -70,6 +78,7 @@ class Comment(Model):
     def __str__(self):
         return "Event #%s" % self.id
 
+
 class FAQ(Model):
     entity = ForeignKey(Entity, null=True)
     ask = CharField(max_length=200, null=True)
@@ -79,3 +88,4 @@ class FAQ(Model):
 
     def __str__(self):
         return "FAQ #%s" % self.id
+

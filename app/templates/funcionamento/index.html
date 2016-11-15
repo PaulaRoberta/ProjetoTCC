@@ -1,36 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="media">
-  <div class="media-left">
-      <img class="media-object" style="height:40%; margin-left:auto; margin-right:auto;" src="{{entity.image}}">
-  <div class="media-body" style="text-align: center" >
-      <h4> <option value="{{ entity.id}} {{entity.maker}} {{ entity.model}}">{{ entity.name}} {{ entity.maker}} {{ entity.model}}</option> </h4><!--colocar if do id do equipamento que vem do qrcode-->
+<!-- Guia rápido do funcionamento !-->
 
-  </div>
-  </div>
-
-  <div class="btn-group btn-group-justified" role="group" aria-label="...">
-    <div class="btn-group" role="group">
-      <a href='/funcionamento/verificacao/{{ entity.id }}' ><button type="button" class=" btn-group btn-group-justified">Verificação de Funcionamento</button></a>
+<div class="row">
+    <!-- Image -->
+    <div class="col-md-6">
+        <img style="width:100%;" src="/media/{{entity.image}}">
     </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn-group btn-group-justified">Mecânica Respiratória</button>
-  </div>
-  <div class="btn-group" role="group">
-    <a href='/errosfrequentes/{{ entity.id }}' > <button type="button" class="btn-group btn-group-justified">Análise de Gráficos</button></a>
-  </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ entity.name}} {{ entity.maker}} {{ entity.model}}</h3>
+                    </div>
+                    <div class="panel panel-body">
+                       <iframe src="{{entity.link}}" frameBorder="0" width="100%" height="500"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+    <textarea name="test" id="new"></textarea>
+    {{ markdown_editor }}
+    {{ markdown_media }}
 </div>
-
-<!-- Testando -->
-<nav aria-label="...">
-  <ul class="pager">
-    <li class="previous"><a href='/equipamento/{{ entity.id }}'><span aria-hidden="true">&larr;</span> Voltar </a></li>
-  </ul>
-</nav>
-
-</div>
-
 
 
 {% endblock content%}
+

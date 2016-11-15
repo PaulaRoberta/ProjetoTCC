@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 
+
 def create(request):
     return render(request, 'user/create.html')
 
@@ -43,6 +44,7 @@ def do_login(request):
 
     if user:
         auth.login(request, user)
-        return redirect('/equipamento')
+        return redirect('/qrcode')
     else:
         return HttpResponse("Usuário não encontrado")
+
